@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+ENV/
+
+# Output
+output_analysis/
+output_analysis_BEAN/
+output_bean_full/
+temp_frames/
+*.mp4
+*.json
+
+# Logs
+latest.log
+*.log
+
+# Project specific
+client_secret.json
+token.json

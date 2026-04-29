@@ -35,6 +35,10 @@ MAX_CLIP_DURATION: int = int(os.getenv("MAX_CLIP_DURATION", "59"))
 MAX_RETRIES: int = int(os.getenv("MAX_RETRIES", "3"))
 RETRY_BASE_DELAY: float = float(os.getenv("RETRY_BASE_DELAY", "2.0"))
 
+# ── Instagram ────────────────────────────────────────────────
+INSTAGRAM_ACCESS_TOKEN: str = os.getenv("INSTAGRAM_ACCESS_TOKEN")
+INSTAGRAM_BUSINESS_ACCOUNT_ID: str = os.getenv("INSTAGRAM_BUSINESS_ACCOUNT_ID")
+
 
 def validate_youtube_config() -> None:
     """Ensure YouTube-related config is present."""

@@ -12,6 +12,7 @@ output_analysis_BEAN/
 output_bean_full/
 temp_frames/
 *.mp4
+*.mp3
 *.json
 
 # Logs
@@ -21,3 +22,13 @@ latest.log
 # Project specific
 client_secret.json
 token.json
+
+# Local scripts & temp files
+output/
+bin_downloader/
+log_ig_bean_upload.txt
+last_uploaded_bean.txt
+*.vtt
+temp_uploader.py
+*.txt
+.DS_Store

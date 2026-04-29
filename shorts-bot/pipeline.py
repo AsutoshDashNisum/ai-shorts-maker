@@ -248,14 +248,14 @@ def run_phase_3(video_path, report_filename):
         print(f"[EXPORT] {label} ({start}s - {end}s)...")
         
         # Consistent vertical format with follow CTA branding
-        drawtext_part = f"drawtext=fontfile='C\\:/Windows/Fonts/arial.ttf':text='{{label}}':fontcolor=white:fontsize=100:borderw=3:bordercolor=black:x=(w-text_w)/2:y=100"
-        drawtext_follow = "drawtext=fontfile='C\\:/Windows/Fonts/arial.ttf':text='Follow @the_anitadka':fontcolor=yellow:fontsize=80:borderw=3:bordercolor=black:x=(w-text_w)/2:y=h-200"
-        
+        # Mac compatible fonts and vertical format
+        drawtext_part = f"drawtext=fontfile='/Library/Fonts/Arial.ttf':text='{label}':fontcolor=white:fontsize=80:borderw=3:bordercolor=black:x=(w-text_w)/2:y=100"
+        drawtext_follow = "drawtext=fontfile='/Library/Fonts/Arial.ttf':text='Follow @the_anitadka':fontcolor=yellow:fontsize=60:borderw=3:bordercolor=black:x=(w-text_w)/2:y=h-200"
         cmd = [
             "ffmpeg", "-y", "-ss", str(start), "-i", str(video_path),
             "-t", str(duration),
             "-vf", f"scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,{drawtext_part},{drawtext_follow}",
-            "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-c:a aac", "-b:a 128k", str(output_path)
+            "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-c:a", "aac", "-b:a", "128k", str(output_path)
         ]
         
         full_cmd = " ".join(cmd)
